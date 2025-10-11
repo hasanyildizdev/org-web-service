@@ -1,7 +1,21 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
-const { locale, setLocale } = useI18n()
-const colorMode = useColorMode()
+const { locale, locales, setLocale } = useI18n()
+
+// Restore saved locale on mount
+onMounted(() => {
+  const savedLocale = localStorage.getItem('ourganize-session-language')
+  const validLocales = ['tr', 'en', 'de', 'fr', 'es']
+  if (savedLocale && validLocales.includes(savedLocale)) {
+    setLocale(savedLocale as 'tr' | 'en' | 'de' | 'fr' | 'es')
+  }
+})
+
+// Save locale when it changes
+watch(locale, (newLocale) => {
+  localStorage.setItem('ourganize-session-language', newLocale)
+})
+
 const items = computed<NavigationMenuItem[]>(() => [
 {
     label: $t('Home'),
@@ -29,13 +43,6 @@ const navigationUi = {
   active: 'text-primary dark:text-accent font-semibold',
   inactive: 'text-gray-700 dark:text-gray-200'
 }
-onMounted(() => {
-  const savedLocale = localStorage.getItem('ourganize-session-language');
-  const validLocales = ['tr', 'en', 'de', 'fr', 'es'];
-  if (savedLocale && validLocales.includes(savedLocale)) {
-    setLocale(savedLocale as 'tr' | 'en' | 'de' | 'fr' | 'es');
-  }
-});
 </script>
 
 <template>
@@ -47,8 +54,11 @@ onMounted(() => {
         <UNavigationMenu :items="items" :ui="navigationUi" />
         <template #right>
             <div class="flex items-center space-x-2">
-                <UColorModeButton />
-                <LanguageSwitcher />
+                <UColorModeSwitch color="neutral"/>
+                <ULocaleSelect 
+                    v-model="locale" 
+                    :locales="locales as any" 
+                    class="w-32"/>
                 <NuxtLink to="/auth/login" class="px-4 py-2 text-sm font-medium bg-primary hover:bg-primary/80 text-white rounded-full transition-colors duration-300">
                     {{ $t('Login') }}
                 </NuxtLink>

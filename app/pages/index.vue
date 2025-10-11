@@ -86,9 +86,11 @@ const what_is_ourganize = ref([
           :title="$t('Organize with AI')"
           :description="$t('Streamline your workflows, connect scattered systems, and automate routine tasks with AI so your teams can focus on what truly matters.')"
           orientation="horizontal"
-          :links="hero_links">
-          <img
-              src="/assets/images/hero.jpg"
+          :links="hero_links"
+          :ui="{ headline: 'text-primary dark:text-accent' }">
+          <UColorModeImage
+              light="/assets/images/hero.jpg"
+              dark="/assets/images/hero_dark.jpg"
               alt="App screenshot"
               class="rounded-lg shadow-2xl ring ring-default"
           />
