@@ -79,56 +79,56 @@ const what_is_ourganize = ref([
 </script>
 <template>
     <UPage>
-
-        <!-- Section 1: Hero / Intro -->
-        <UPageHero
-          :headline="$t('In Sync')"
-          :title="$t('Organize with AI')"
-          :description="$t('Streamline your workflows, connect scattered systems, and automate routine tasks with AI so your teams can focus on what truly matters.')"
-          orientation="horizontal"
-          :links="hero_links"
-          :ui="{ headline: 'text-primary dark:text-accent' }">
-          <UColorModeImage
-              light="/assets/images/hero.jpg"
-              dark="/assets/images/hero_dark.jpg"
-              alt="App screenshot"
-              class="rounded-lg shadow-2xl ring ring-default"
-          />
-        </UPageHero>
-
-        <!-- Section 2: What is ourganize -->
-        <UPageSection>
-            <div class="text-center">
-                <h2 class="text-sm font-semibold text-secondary dark:text-accent uppercase tracking-wide mb-3">
-                    {{ $t('What is Ourganize?') }}
-                </h2>
-                <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-6">
-                    {{ $t('Your Complete Digital Organization Platform') }}
-                </h3>
-                <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto">
-                    {{ $t('Ourganize transforms how teams work by combining powerful automation, intelligent data management, and seamless collaboration into one unified platform. Say goodbye to scattered tools and hello to organized success.') }}
-                </p>
-            </div>
-            <UPageGrid>
-                <UPageCard
-                    v-for="(card, index) in what_is_ourganize"
-                    :key="index"
-                    v-bind="card"
-                    class="[&_[class*='i-']]:text-primary [&_[class*='i-']]:dark:text-accent [&_[class*='i-']]:w-8 [&_[class*='i-']]:h-8"
-                    />
-            </UPageGrid>
-        </UPageSection>
-
-        <!-- Section 8: CTA -->
-        <UPageSection :ui="{ container: 'px-0' }"> 
-            <UPageCTA
-                :title="$t('Transform Your Organization Today')"
-                :description="$t('Join thousands of teams who are already digitizing their workflows and making data-driven decisions.')"
-                variant="soft"
-                :links="cta_links"
-                class="rounded-none sm:rounded-xl"
+      <UPageBody class="max-w-6xl mx-auto">  
+          <!-- Section 1: Hero / Intro -->
+          <UPageHero
+            :headline="$t('In Sync')"
+            :title="$t('Organize with AI')"
+            :description="$t('Streamline your workflows, connect scattered systems, and automate routine tasks with AI so your teams can focus on what truly matters.')"
+            :links="hero_links"
+            :ui="{ headline: 'text-primary dark:text-accent', container: 'pb-0 sm:pb-0 md:pb-0 lg:pb-0' }"
+            orientation="horizontal">
+            <UColorModeImage
+                light="/assets/images/hero.jpg"
+                dark="/assets/images/hero_dark.jpg"
+                alt="App screenshot"
+                class="rounded-lg shadow-2xl ring ring-default"
             />
-        </UPageSection>
+          </UPageHero>
+  
+          <!-- Section 2: What is ourganize -->
+          <UPageSection>
+              <div class="text-center">
+                  <h2 class="text-sm font-semibold text-secondary dark:text-accent uppercase tracking-wide mb-3">
+                      {{ $t('What is Ourganize?') }}
+                  </h2>
+                  <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-6">
+                      {{ $t('Your Complete Digital Organization Platform') }}
+                  </h3>
+                  <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto">
+                      {{ $t('Ourganize transforms how teams work by combining powerful automation, intelligent data management, and seamless collaboration into one unified platform. Say goodbye to scattered tools and hello to organized success.') }}
+                  </p>
+              </div>
+              <UPageGrid>
+                  <UPageCard
+                      v-for="(card, index) in what_is_ourganize"
+                      :key="index"
+                      v-bind="card"
+                      class="[&_[class*='i-']]:text-primary [&_[class*='i-']]:dark:text-accent [&_[class*='i-']]:w-8 [&_[class*='i-']]:h-8"
+                      />
+              </UPageGrid>
+          </UPageSection>
+  
+          <!-- Section 8: CTA -->
+          <UPageCTA
+              :title="$t('Transform Your Organization Today')"
+              :description="$t('Join thousands of teams who are already digitizing their workflows and making data-driven decisions.')"
+              variant="soft"
+              :links="cta_links"
+              class="rounded-none sm:rounded-xl"
+              :ui="{ container: 'py-0' }"
+          />
+      </UPageBody>
     </UPage>
 </template>
     
