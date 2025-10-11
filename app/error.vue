@@ -36,7 +36,7 @@ const errorMessage = computed(() => {
         <div class="absolute inset-0 flex items-center justify-center">
           <UIcon 
             :name="is404 ? 'heroicons:magnifying-glass' : 'heroicons:exclamation-triangle'" 
-            class="w-24 h-24 md:w-32 md:h-32 text-primary opacity-80"
+            class="w-24 h-24 md:w-32 md:h-32 text-primary dark:text-white opacity-80"
           />
         </div>
       </div>
@@ -46,7 +46,7 @@ const errorMessage = computed(() => {
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
           {{ errorTitle }}
         </h2>
-        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-md mx-auto">
+        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-md mx-auto">
           {{ errorMessage }}
         </p>
       </div>
@@ -72,11 +72,11 @@ const errorMessage = computed(() => {
 
       <!-- Additional Help (Optional) -->
       <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
-        <p class="text-sm text-gray-500 dark:text-gray-500">
+        <p class="text-sm text-gray-500 dark:text-gray-400">
           {{ t('Need help?') }}
           <NuxtLink 
             to="/contact" 
-            class="text-primary hover:text-primary/80 font-medium transition-colors duration-300 ml-1"
+            class="text-primary hover:text-primary/80 dark:text-white dark:hover:text-primary/80 font-medium transition-colors duration-300 ml-1"
           >
             {{ t('Contact us') }}
           </NuxtLink>

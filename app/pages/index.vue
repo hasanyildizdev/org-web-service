@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { t } = useI18n()
+
 useHead({
     title: 'Home',
     meta: [
@@ -17,6 +19,48 @@ const user = {
   experience: "5 years at TechCorp as Senior Developer",
   email: "jane.doe@example.com",
 };
+
+const marquee = [
+    {
+        icon: 'i-simple-icons-github',
+        link: 'https://github.com/ourganize',
+    },
+    {
+        icon: 'i-simple-icons-discord',
+        link: 'https://discord.gg/ourganize',
+    },
+    {
+        icon: 'i-simple-icons-x',
+        link: 'https://x.com/ourganize',
+    },
+    {
+        icon: 'i-simple-icons-instagram',
+        link: 'https://instagram.com/ourganize',
+    },
+    {
+        icon: 'i-simple-icons-linkedin',
+        link: 'https://linkedin.com/company/ourganize',
+    },
+    {
+        icon: 'i-simple-icons-facebook',
+        link: 'https://facebook.com/ourganize',
+    },
+];
+
+const cta_links = computed(() => [
+  {
+    label: t('Start Free Trial'),
+    color: 'neutral' as const,
+    to: '/auth/login'
+  },
+  {
+    label: t('Schedule Demo'),
+    color: 'neutral' as const,
+    variant: 'subtle' as const,
+    trailingIcon: 'i-lucide-arrow-right',
+    to: '/contact'
+  }
+])
 </script>
 <template>
     <div>
@@ -195,39 +239,12 @@ const user = {
         <!-- Section 8: CTA -->
         <section class="py-20 px-6 md:px-12 lg:px-24">
             <div class="max-w-4xl mx-auto text-center">
-                <!-- Main Heading -->
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-6">
-                    {{ $t('Transform Your Organization Today') }}
-                </h2>
-                
-                <!-- Subtitle -->
-                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-                    {{ $t('Join thousands of teams who are already digitizing their workflows and making data-driven decisions.') }}
-                </p>
-
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                    <NuxtLink
-                        to="/auth/register"
-                        class="group w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-primary dark:bg-accent rounded-lg hover:bg-primary/90 dark:hover:bg-accent/90 transition-all duration-300"
-                    >
-                        {{ $t('Start Free Trial') }}
-                        <UIcon name="i-heroicons-arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                    </NuxtLink>
-
-                    <NuxtLink
-                        to="/contact"
-                        class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary dark:text-white border-2 border-primary dark:border-accent rounded-lg hover:bg-primary/5 dark:hover:bg-accent/10 transition-all duration-300"
-                    >
-                        {{ $t('Schedule Demo') }}
-                    </NuxtLink>
-                </div>
-
-                <!-- Trust Badge -->
-                <p class="text-sm text-gray-500 dark:text-gray-500 flex items-center justify-center gap-2">
-                    <UIcon name="i-heroicons-shield-check" class="w-5 h-5" />
-                    {{ $t('No credit card required') }}
-                </p>
+                <UPageCTA
+                    :title="$t('Transform Your Organization Today')"
+                    :description="$t('Join thousands of teams who are already digitizing their workflows and making data-driven decisions.')"
+                    variant="soft"
+                    :links="cta_links"
+                />
             </div>
         </section>
     </div>
