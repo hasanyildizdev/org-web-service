@@ -1,6 +1,11 @@
 <script setup lang="ts">
 useSeoMeta({
-  ogImage: '/og-image.png',
+  title: 'Ourganize - Your Personalized Organization Assistant',
+  ogTitle: 'Ourganize - Your Personalized Organization Assistant',
+  description: 'Ourganize - Your Personalized Organization Assistant',
+  ogDescription: 'Ourganize - Your Personalized Organization Assistant',
+  ogImage: 'logo.png',
+  twitterCard: 'summary_large_image',
 })
 useHead({
   title: 'Ourganize - Your Personalized Organization Assistant',

@@ -62,3 +62,6 @@ npm run dev
 - Order is the art of progress.
 - Shape time, shape success.
 - Simplify your life. Shape your story.
+
+## API
+https://nuxt.com/docs/4.x/getting-started/data-fetching
