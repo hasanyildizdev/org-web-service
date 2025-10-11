@@ -1,57 +1,39 @@
 <script setup lang="ts">
-import { ref } from 'vue';  
 import type { NavigationMenuItem } from '@nuxt/ui'
-const route = useRoute()
 const { locale, setLocale } = useI18n()
 const colorMode = useColorMode()
-
-type Section = 'home' | 'docs' | 'changelog' | 'blog' | 'contact';
-
-// State management
-const activeSection = ref<Section>('home');
-const showMobileMenu = ref(false);
-
-// Methods
-const toggleMobileMenu = () => {
-    showMobileMenu.value = !showMobileMenu.value;
-};
-
-const setActiveSection = (section: Section) => {
-    activeSection.value = section;
-    showMobileMenu.value = false;
-};
-
 const items = computed<NavigationMenuItem[]>(() => [
 {
-    label: 'Home',
+    label: $t('Home'),
     to: '/',
 }, 
 {
-    label: 'Docs',
+    label: $t('Docs'),
     to: '/docs',
 }, 
 {
-    label: 'Changelog',
+    label: $t('Changelog'),
     to: '/changelog',
 }, 
 {
-    label: 'Blog',
+    label: $t('Blog'),
     to: '/blog',
 }, 
 {
-    label: 'Contact',
+    label: $t('Contact'),
     to: '/contact',
-}])
-
+}
+])
+const navigationUi = {
+  link: 'text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-accent font-medium',
+  active: 'text-primary dark:text-accent font-semibold',
+  inactive: 'text-gray-700 dark:text-gray-200'
+}
 onMounted(() => {
   const savedLocale = localStorage.getItem('ourganize-session-language');
   const validLocales = ['tr', 'en', 'de', 'fr', 'es'];
   if (savedLocale && validLocales.includes(savedLocale)) {
     setLocale(savedLocale as 'tr' | 'en' | 'de' | 'fr' | 'es');
-  }
-  const savedTheme = localStorage.getItem('ourganize-session-theme');
-  if (savedTheme) {
-    colorMode.preference = savedTheme;
   }
 });
 </script>
@@ -62,7 +44,7 @@ onMounted(() => {
             <AppLogo />
         </template>
 
-        <UNavigationMenu :items="items" />
+        <UNavigationMenu :items="items" :ui="navigationUi" />
         <template #right>
             <div class="flex items-center space-x-2">
                 <UColorModeButton />
@@ -74,7 +56,7 @@ onMounted(() => {
         </template>
 
         <template #body>
-            <UNavigationMenu :items="items" orientation="vertical" class="-mx-2.5" />
+            <UNavigationMenu :items="items" orientation="vertical" :ui="navigationUi" class="-mx-2.5" />
         </template>
     </UHeader>
 </template>

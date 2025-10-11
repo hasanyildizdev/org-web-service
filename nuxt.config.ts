@@ -40,6 +40,7 @@ export default defineNuxtConfig({
   ],
 
   i18n: {
+    strategy: 'no_prefix',
     defaultLocale: 'en',
     locales: [
       {code: 'tr', name: 'Türkçe'},
@@ -51,6 +52,12 @@ export default defineNuxtConfig({
     vueI18n: "~/config/i18n.config",
   },
 
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+    storageKey: 'ourganize-color-mode',
+    classSuffix: '',
+  },
 
   typescript: {
     typeCheck: true
