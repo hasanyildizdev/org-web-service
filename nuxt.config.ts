@@ -1,9 +1,26 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import meta from './app/config/meta'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
   css: ['~/assets/css/main.css'],
+
+  app: {
+    head: {
+      title: 'Ourganize - AI Powered Organize',
+      meta: meta,
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1.0',
+      htmlAttrs: {
+        lang: 'en'
+      },
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ]
+    }
+  },
 
   modules: [
     '@nuxt/content',
@@ -18,7 +35,8 @@ export default defineNuxtConfig({
   components: [
     {
       path: '~/components',
-      pathPrefix: false,    },
+      pathPrefix: false,   
+    },
   ],
 
   i18n: {
@@ -31,5 +49,16 @@ export default defineNuxtConfig({
       {code: 'es', name: 'Español'},
     ],
     vueI18n: "~/config/i18n.config",
+  },
+
+
+  typescript: {
+    typeCheck: true
+  },
+
+  runtimeConfig: {
+    public: {
+
+    }
   }
 })
