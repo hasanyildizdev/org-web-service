@@ -77,3 +77,6 @@ https://ui.nuxt.com/docs/components/changelog-versions
 
 ## Docs
 https://ui.nuxt.com/docs/components/page
+
+## UI
+https://ui.nuxt.com/
