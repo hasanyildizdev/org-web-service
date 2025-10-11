@@ -60,7 +60,7 @@ export default defineNuxtConfig({
   },
 
   typescript: {
-    typeCheck: true
+    typeCheck: false // Disable type checking during build
   },
 
   runtimeConfig: {

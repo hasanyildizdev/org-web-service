@@ -4,3 +4,6 @@ npm-debug.log
 .env
 .output
 .nuxt
+.cache
+.data
+.idea
