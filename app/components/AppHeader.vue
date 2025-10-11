@@ -32,12 +32,12 @@ onMounted(() => {
 </script>
 
 <template>
-    <header class="fixed top-2 left-0 right-0 z-50 max-w-screen-2xl rounded-lg mx-auto backdrop-blur-xs bg-white/50 dark:bg-slate-900/70 border-b border-gray-200 dark:border-gray-800 shadow-sm shadow-xl py-3">
+    <UHeader class="fixed top-2 left-0 right-0 z-50 max-w-screen-2xl rounded-lg mx-auto backdrop-blur-xs bg-white/50 dark:bg-slate-900/70 border-b border-gray-200 dark:border-gray-800 shadow-sm shadow-xl py-3">
+        <template #title>
+            <AppLogo />
+        </template>
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center">
-                <NuxtLink to="/" class="flex items-center">
-                    <AppLogo />
-                </NuxtLink>
             </div>
             
             <!-- Desktop Navigation -->
@@ -99,5 +99,5 @@ onMounted(() => {
                 </div>
             </div>
         </div>
-    </header>
+    </UHeader>
 </template>
