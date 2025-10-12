@@ -3,7 +3,13 @@ import nodemailer from 'nodemailer'
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
   const { name, email, topic, message } = body
-  const config = useRuntimeConfig()
+  const config = {
+    smtpHost: process.env.SMTP_HOST,
+    smtpPort: Number(process.env.SMTP_PORT),
+    smtpUser: process.env.SMTP_USER,
+    smtpPass: process.env.SMTP_PASS,
+  }
+
 
   // Basic validation
   if (!name || !email || !message) {
