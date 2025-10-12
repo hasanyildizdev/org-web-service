@@ -13,8 +13,7 @@ const versions = ref([
     image: '/assets/images/version/v1.2.png',
     badge: 'v1.2',
     date: '2025-09-12',
-    to: 'https://ourganize.com/blog/v1-2',
-    target: '_blank',
+    to: '/blog/version/1.2',
     ui: {
       container: 'max-w-lg'
     }
@@ -25,8 +24,7 @@ const versions = ref([
     image: '/assets/images/version/v1.1.png',
     badge: 'v1.1',
     date: '2025-09-07',
-    to: 'https://ourganize.com/blog/v1-1',
-    target: '_blank',
+    to: '/blog/version/1.1',
     ui: {
       container: 'max-w-lg'
     }
@@ -37,8 +35,7 @@ const versions = ref([
     image: '/assets/images/version/v1.0.png',
     badge: 'v1.0',
     date: '2025-09-01',
-    to: 'https://ourganize.com/blog/v1-0',
-    target: '_blank',
+    to: '/blog/version/1.0',
     ui: {
       container: 'max-w-lg'
     }
