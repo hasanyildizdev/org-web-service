@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/test-utils',
     '@nuxt/ui',
-    '@nuxtjs/i18n',
+    '@nuxtjs/i18n'
   ],
 
   components: [

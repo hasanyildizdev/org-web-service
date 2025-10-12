@@ -69,14 +69,5 @@ https://nuxt.com/docs/4.x/getting-started/data-fetching
 ## Auth
 https://ui.nuxt.com/docs/components/auth-form
 
-## Blog
-https://ui.nuxt.com/docs/components/blog-posts
-
-## Changelog
-https://ui.nuxt.com/docs/components/changelog-versions
-
 ## Docs
 https://ui.nuxt.com/docs/components/page
-
-## UI
-https://ui.nuxt.com/

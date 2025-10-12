@@ -38,7 +38,7 @@ const hero_links = computed(() => [
     }
 ])
 
-const what_is_ourganize = ref([
+const what_is_ourganize = computed(() => [
   {
     title: t('Digitize Everything'),
     description: t('Transform your organization\'s data into actionable insights with advanced big data management and processing.'),
@@ -98,14 +98,14 @@ const what_is_ourganize = ref([
   
           <!-- Section 2: What is ourganize -->
           <UPageSection>
-              <div class="text-center">
+              <div class="text-start">
                   <h2 class="text-sm font-semibold text-secondary dark:text-accent uppercase tracking-wide mb-3">
                       {{ $t('What is Ourganize?') }}
                   </h2>
-                  <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-6">
+                  <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary dark:text-white mb-6">
                       {{ $t('Your Complete Digital Organization Platform') }}
                   </h3>
-                  <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto">
+                  <p class="text-lg text-gray-700 dark:text-gray-300">
                       {{ $t('Ourganize transforms how teams work by combining powerful automation, intelligent data management, and seamless collaboration into one unified platform. Say goodbye to scattered tools and hello to organized success.') }}
                   </p>
               </div>

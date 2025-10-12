@@ -1,19 +1,13 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
-@import "./fonts.css";
-
-@custom-variant dark (&:where(.dark, .dark *));
 
 @layer theme {
     :root {
-        --color-primary: #1B263B; /* #0a66c2 */
+        --color-primary: #4169e1; /* #0a66c2 */
         --color-primary-dark: #00AFFF;
         --color-primary2: #2C3E50;
         --color-secondary: #1A237E; /* #7B9EA8 */
         --color-accent: #4169E1;
-        --color-muted: #0F4C5C;
-        --color-surface: #D1D9E6;
-        --color-surface-dark: #30343F;
     }
 }
 
@@ -22,14 +16,7 @@
   --color-primary-dark: var(--color-primary-dark);
   --color-secondary: var(--color-secondary);
   --color-accent: var(--color-accent);
-  --color-muted: var(--color-muted);
-  --color-surface: var(--color-surface);
-  --color-surface-dark: var(--color-surface-dark);
-  --font-georgia: Georgia, serif;
-  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; 
   --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; 
-  --font-rama: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --font-roboto: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-sfpro_bold: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --font-sfpro: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --animate-fade-in-scale: fade-in-scale 0.3s ease-out; 
@@ -39,4 +26,81 @@
 html {
     scroll-behavior: smooth;
     font-family: var(--font-sfpro_bold);
+}
+
+/* GitHub-style markdown typography */
+.prose {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.prose h1 {
+  @apply text-3xl font-bold text-gray-900 dark:text-white mt-8 mb-4 pb-2 border-b border-gray-200 dark:border-gray-700;
+}
+
+.prose h2 {
+  @apply text-2xl font-semibold text-gray-900 dark:text-white mt-6 mb-3 pb-1 border-b border-gray-200 dark:border-gray-700;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold text-gray-900 dark:text-white mt-5 mb-2;
+}
+
+.prose h4 {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mt-4 mb-2;
+}
+
+.prose p {
+  @apply mb-4 leading-7;
+}
+
+.prose ul {
+  @apply list-disc pl-6 mb-4 space-y-1;
+}
+
+.prose ol {
+  @apply list-decimal pl-6 mb-4 space-y-1;
+}
+
+.prose li {
+  @apply leading-7;
+}
+
+.prose a {
+  @apply text-blue-600 dark:text-blue-400 hover:underline;
+}
+
+.prose strong {
+  @apply font-semibold text-gray-900 dark:text-white;
+}
+
+.prose code {
+  @apply bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+.prose pre {
+  @apply bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 mb-4 overflow-x-auto;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0 text-sm;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-gray-300 dark:border-gray-600 pl-4 italic text-gray-600 dark:text-gray-400 mb-4;
+}
+
+.prose table {
+  @apply w-full border-collapse border border-gray-200 dark:border-gray-700 mb-4;
+}
+
+.prose th {
+  @apply bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-4 py-2 text-left font-semibold;
+}
+
+.prose td {
+  @apply border border-gray-200 dark:border-gray-700 px-4 py-2;
+}
+
+.prose hr {
+  @apply border-0 border-t border-gray-200 dark:border-gray-700 my-8;
 }
