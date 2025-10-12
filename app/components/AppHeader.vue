@@ -48,7 +48,7 @@ const navigationUi = {
 <template>
     <UHeader class="fixed top-2 left-0 right-0 z-50 max-w-screen-xl rounded-lg mx-auto backdrop-blur-xs bg-white/50 dark:bg-slate-900/70 border-b border-gray-200 dark:border-gray-800 shadow-sm shadow-xl py-3">
         <template #title>
-            <AppLogo />
+            <AppLogo size="md" />
         </template>
 
         <UNavigationMenu :items="items" :ui="navigationUi" />
