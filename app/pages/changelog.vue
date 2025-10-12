@@ -10,7 +10,7 @@ const versions = ref([
   {
     title: 'Ourganize 1.2',
     description: 'Web app updated - with a new built-in component, better warnings, and performance improvements!',
-    image: '/assets/images/changelog/v1.2.png',
+    image: '/assets/images/version/v1.2.png',
     badge: 'v1.2',
     date: '2025-09-12',
     to: 'https://ourganize.com/blog/v1-2',
@@ -22,7 +22,7 @@ const versions = ref([
   {
     title: 'Ourganize 1.1',
     description: 'Web app is out - we improved our web app!',
-    image: '/assets/images/changelog/v1.1.png',
+    image: '/assets/images/version/v1.1.png',
     badge: 'v1.1',
     date: '2025-09-07',
     to: 'https://ourganize.com/blog/v1-1',
@@ -34,7 +34,7 @@ const versions = ref([
   {
     title: 'Ourganize 1.0',
     description: 'Ourganize 1.0 is out - we deployed our first version!',
-    image: '/assets/images/changelog/v1.0.png',
+    image: '/assets/images/version/v1.0.png',
     badge: 'v1.0',
     date: '2025-09-01',
     to: 'https://ourganize.com/blog/v1-0',
@@ -48,21 +48,18 @@ const versions = ref([
 
 <template>
     <UPage>
-        <UPageSection class="max-w-4xl mx-auto">
-            <UPageHeader 
-                :headline="$t('In Sync')"
-                :title="$t('Changelog')"
-                :description="$t('We are working hard to improve our platform and bring you the best experience possible.')"
-                :ui="{ root: 'pb-0 border-none' }"
-            />
-            <UChangelogVersions>
-                <UChangelogVersion
-                    v-for="(version, index) in versions"
-                    :key="index"
-                    v-bind="version"
-                    :to="version.to"
-                    />
-            </UChangelogVersions>
-        </UPageSection>
+      <UPageHero title="Changelog" :ui="{ container: 'pb-0 sm:pb-0 lg:pb-4 pt-24 sm:pt-24 lg:pt-28' }" />
+      <UPageBody>
+        <UContainer>
+          <UChangelogVersions>
+              <UChangelogVersion
+                  v-for="(version, index) in versions"
+                  :key="index"
+                  v-bind="version"
+                  :to="version.to"
+                  />
+          </UChangelogVersions>
+        </UContainer>
+      </UPageBody>
     </UPage>
 </template>

@@ -9,13 +9,7 @@ useHead({
 
 <template>
     <UPage>
-        <UPageSection class="max-w-4xl mx-auto">
-            <UPageHeader 
-                :headline="$t('Docs')"
-                :title="$t('Stay tuned for the latest news, updates, and insights about our platform.')"
-                :description="$t('Docs coming soon...')"
-                :ui="{ root: 'pb-0 border-none' }"
-            />
-        </UPageSection>
+        <UPageHero title="Docs" :ui="{ container: 'pb-0 sm:pb-0 lg:pb-4 pt-24 sm:pt-24 lg:pt-28' }" />
+
     </UPage>
 </template>
