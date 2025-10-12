@@ -58,6 +58,12 @@ ${message}
 
     return { success: true, message: 'Email sent successfully' }
   } catch (err) {
+    console.log('🟢 SMTP config:', {
+      host: config.smtpHost,
+      port: config.smtpPort,
+      user: config.smtpUser,
+      pass: config.smtpPass
+    })
     console.error('❌ Error sending email:', err)
     event.res.statusCode = 500
     return { error: 'Failed to send email. Please try again later.' }
