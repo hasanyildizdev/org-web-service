@@ -2,6 +2,7 @@
 import * as z from 'zod'
 import type { FormSubmitEvent, AuthFormField } from '@nuxt/ui'
 import AppLogo from '~/components/AppLogo.vue'
+
 definePageMeta({
     layout: 'auth',
 })

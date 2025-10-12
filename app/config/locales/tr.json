@@ -84,5 +84,18 @@
   "Your message": "Mesajınız",
   "Send Message": "Mesaj Gönder",
   "Message Sent!": "Mesaj Gönderildi!",
-  "Your message has been successfully sent. We will get back to you shortly.": "Mesajınız başarıyla gönderildi. En kısa sürede size geri döneceğiz."
+  "Your message has been successfully sent. We will get back to you shortly.": "Mesajınız başarıyla gönderildi. En kısa sürede size geri döneceğiz.",
+  "Get in Touch": "İletişime Geçin",
+  "Email Address": "E-posta Adresi",
+  "We respond within 24 hours": "24 saat içinde yanıtlıyoruz",
+  "Phone Number": "Telefon Numarası",
+  "Mon-Fri 9AM-6PM": "Pzt-Cum 9:00-18:00",
+  "Office Address": "Ofis Adresi",
+  "Follow Us": "Bizi Takip Edin",
+  "Topic": "Konu",
+  "Your topic": "Konunuz",
+  "General": "Genel",
+  "Support": "Destek",
+  "Feedback": "Geri Bildirim",
+  "Other": "Diğer"
 }

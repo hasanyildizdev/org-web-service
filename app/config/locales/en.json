@@ -84,5 +84,18 @@
   "Your message": "Your message",
   "Send Message": "Send Message",
   "Message Sent!": "Message Sent!",
-  "Your message has been successfully sent. We will get back to you shortly.": "Your message has been successfully sent. We will get back to you shortly."
+  "Your message has been successfully sent. We will get back to you shortly.": "Your message has been successfully sent. We will get back to you shortly.",
+  "Get in Touch": "Get in Touch",
+  "Email Address": "Email Address",
+  "We respond within 24 hours": "We respond within 24 hours",
+  "Phone Number": "Phone Number",
+  "Mon-Fri 9AM-6PM": "Mon-Fri 9AM-6PM",
+  "Office Address": "Office Address",
+  "Follow Us": "Follow Us",
+  "Topic": "Topic",
+  "Your topic": "Your topic",
+  "General": "General",
+  "Support": "Support",
+  "Feedback": "Feedback",
+  "Other": "Other"
 }

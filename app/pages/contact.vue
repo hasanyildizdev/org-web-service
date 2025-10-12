@@ -11,10 +11,41 @@ useHead({
 const toast = useToast()
 const { contactContent } = useOurganize();
 
+const topics = computed(() => [
+    t('General'),
+    t('Support'),
+    t('Feedback'), 
+    t('Other')
+])
+
 const name = ref('');
 const email = ref('');
+const topic = ref('');
 const message = ref('');
 const formSubmitted = ref(false);
+
+const social_media_links = computed(() => [
+    {
+        name: 'LinkedIn',
+        url: 'https://www.linkedin.com/company/ourganize',
+        icon: 'fa-brands-linkedin',
+    },
+    {
+        name: 'Facebook',
+        url: 'https://www.facebook.com/ourganize',
+        icon: 'fa-brands-facebook',
+    },
+    {
+        name: 'Twitter',
+        url: 'https://twitter.com/ourganize',
+        icon: 'fa-brands-twitter',
+    },
+    {
+        name: 'Instagram',
+        url: 'https://www.instagram.com/ourganize',
+        icon: 'fa-brands-instagram',
+    },
+]);
 
 const submitContactForm = () => {
     // Here you would typically submit the form data to your backend
@@ -43,56 +74,65 @@ const submitContactForm = () => {
         <UPageHero title="Contact" :ui="{ container: 'pb-0 sm:pb-0 lg:pb-4 pt-24 sm:pt-24 lg:pt-28' }" />
         <UPageBody>
             <div class="w-full flex flex-col lg:flex-row gap-6 justify-center">
-                <UCard class="rounded-2xl dark:bg-gray-800 min-w-md">
+             <UCard class="rounded-2xl dark:bg-gray-800 min-w-md">
+                    <!-- Header with gradient background -->
                     <template #header>
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{{ $t('Contact Information') }}</h3>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{{ $t('Get in Touch') }}</h3>
                     </template>
 
-                    <ul class="space-y-6">
-                        <li class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center mr-4 text-primary border border-gray-200 dark:bg-gray-700 dark:border-gray-600">
-                                <UIcon name="i-heroicons-envelope" class="w-5 h-5 text-primary"></UIcon>
+                    <!-- Contact Information -->
+                    <div class="flex-1">
+                        <div class="space-y-4">
+                            <div class="group">
+                                <div class="flex items-start p-4 rounded-xl bg-gray-50/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-primary/30 transition-colors duration-200">
+                                    <div class="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mr-4">
+                                        <UIcon name="i-heroicons-envelope" class="w-6 h-6 text-primary"></UIcon>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-1">{{ $t('Email Address') }}</h4>
+                                        <a :href="`mailto:${contactContent.email}`" class="text-primary hover:text-primary/80 font-medium transition-colors">{{ contactContent.email }}</a>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">{{ $t('We respond within 24 hours') }}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="text-sm font-medium text-gray-500 mb-1 dark:text-gray-400">{{ $t('Email') }}</h4>
-                                <a :href="`mailto:${contactContent.email}`" class="text-gray-900 dark:text-white">{{ contactContent.email }}</a>
-                            </div>
-                        </li>
 
-                        <li class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center mr-4 text-primary border border-gray-200 dark:bg-gray-700 dark:border-gray-600">
-                                <UIcon name="i-heroicons-phone" class="w-5 h-5 text-primary"></UIcon>
+                            <div class="group">
+                                <div class="flex items-start p-4 rounded-xl bg-gray-50/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-primary/30 transition-colors duration-200">
+                                    <div class="w-12 h-12 rounded-xl bg-primary/10 dark:bg-green-900/20 flex items-center justify-center mr-4">
+                                        <UIcon name="i-heroicons-phone" class="w-6 h-6 text-primary"></UIcon>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-1">{{ $t('Phone Number') }}</h4>
+                                        <a :href="`tel:${contactContent.phone_}`" class="text-primary hover:text-primary/80 font-medium transition-colors">{{ contactContent.phone }}</a>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">{{ $t('Mon-Fri 9AM-6PM') }}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="text-sm font-medium text-gray-500 mb-1 dark:text-gray-400">{{ $t('Phone') }}</h4>
-                                <a :href="`tel:${contactContent.phone_}`" class="text-gray-900 dark:text-white">{{ contactContent.phone }}</a>
-                            </div>
-                        </li>
 
-                        <li class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center mr-4 text-primary border border-gray-200 dark:bg-gray-700 dark:border-gray-600">
-                                <UIcon name="ic:baseline-location-on" class="w-5 h-5 text-primary"></UIcon>
+                            <div class="group">
+                                <div class="flex items-start p-4 rounded-xl bg-gray-50/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-primary/30 transition-colors duration-200">
+                                    <div class="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mr-4">
+                                        <UIcon name="ic:baseline-location-on" class="w-6 h-6 text-primary"></UIcon>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-1">{{ $t('Office Address') }}</h4>
+                                        <p class="text-gray-700 dark:text-gray-300 font-medium">{{ contactContent.address }}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="text-sm font-medium text-gray-500 mb-1 dark:text-gray-400">{{ $t('Address') }}</h4>
-                                <p class="text-gray-900 dark:text-white">{{ contactContent.address }}</p>
-                            </div>
-                        </li>
-                    </ul>
+                        </div>
 
-                    <div class="flex space-x-6 h-full mt-16 justify-center">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors duration-300 border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600">
-                            <UIcon name="fa-brands-linkedin" class="w-5 h-5 text-primary"></UIcon>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors duration-300 border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600">
-                            <UIcon name="fa-brands-facebook" class="w-5 h-5 text-primary"></UIcon>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors duration-300 border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600">
-                            <UIcon name="fa-brands-twitter" class="w-5 h-5 text-primary"></UIcon>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors duration-300 border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-600">
-                            <UIcon name="fa-brands-instagram" class="w-5 h-5 text-primary"></UIcon>
-                        </a>
+                        <!-- Social Media -->
+                        <div class="mt-6">
+                            <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-4 text-center">{{ $t('Follow Us') }}</h4>
+                            <div class="flex justify-center space-x-3">
+                                <template v-for="link in social_media_links" :key="link.name">
+                                    <a :href="link.url" class="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center hover:scale-110 transition-transform duration-200">
+                                        <UIcon :name="link.icon" class="w-6 h-6 text-primary"></UIcon>
+                                    </a>
+                                </template>
+                            </div>
+                        </div>
                     </div>
                 </UCard>
 
@@ -124,6 +164,19 @@ const submitContactForm = () => {
                                 v-model="email"
                                 :placeholder="$t('Your email address')"
                                 icon="i-heroicons-envelope"
+                                size="xl"
+                                required
+                                class="w-full"
+                            />
+                        </UFormField>
+
+                        <UFormField :label="$t('Topic')" name="topic">
+                            <USelectMenu 
+                                id="topic"
+                                v-model="topic"
+                                :items="topics"
+                                :placeholder="$t('Your topic')"
+                                icon="mdi:crosshairs-question"
                                 size="xl"
                                 required
                                 class="w-full"
