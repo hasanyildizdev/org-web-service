@@ -1,12 +1,12 @@
 <script setup lang="ts">
-const { t } = useI18n()
-
 useHead({
-    title: 'Home',
-    meta: [
-        { name: 'description', content: 'Welcome to our amazing project!' }
-    ]
+  title: 'Home',
+  meta: [
+    { name: 'description', content: 'Welcome to our amazing project!' }
+  ]
 })
+
+const { t } = useI18n()
 
 const cta_links = computed(() => [
   {
