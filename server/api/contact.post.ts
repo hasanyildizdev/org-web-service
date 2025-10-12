@@ -1,5 +1,6 @@
+import nodemailer from 'nodemailer'
+
 export default defineEventHandler(async (event) => {
-  const { sendMail } = useNodeMailer()
   const body = await readBody(event)
   const { name, email, topic, message } = body
   const config = useRuntimeConfig()
@@ -9,8 +10,18 @@ export default defineEventHandler(async (event) => {
     event.res.statusCode = 400
     return { error: 'Missing required fields' }
   }
-
+  
   try {
+    const transporter = nodemailer.createTransport({
+      host: config.smtpHost,
+      port: config.smtpPort,
+      secure: true,
+      auth: {
+        user: config.smtpUser,
+        pass: config.smtpPass
+      }
+    })
+
     // Build the email content
     const mailSubject = topic
       ? `New ${topic} message from ${name}`
@@ -36,8 +47,9 @@ ${message}
     `
 
     // Send email via configured SMTP (Zoho in your case)
-    await sendMail({
-      to: config.public.contactEmail,
+    await transporter.sendMail({
+      from: config.smtpUser,
+      to: config.smtpUser, // Send to yourself
       subject: mailSubject,
       text: mailText,
       html: mailHtml,

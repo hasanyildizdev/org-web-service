@@ -63,18 +63,7 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: false // Disable type checking during build
   },
-
-  nodemailer: {
-    from: process.env.SMTP_USER,
-    host: process.env.SMTP_HOST,
-    port: process.env.SMTP_PORT,
-    secure: true,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-  },
-
+  
   runtimeConfig: {
     smtpHost: process.env.SMTP_HOST,
     smtpPort: Number(process.env.SMTP_PORT),

@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.7.2",
+    "@types/nodemailer": "^7.0.2",
     "nodemailer": "^6.10.1",
     "nuxt-nodemailer": "^1.1.2",
     "typescript": "^5.9.3",
