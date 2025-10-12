@@ -23,6 +23,7 @@ const email = ref('');
 const topic = ref('');
 const message = ref('');
 const formSubmitted = ref(false);
+const loading = ref(false)
 
 const social_media_links = computed(() => [
     {
@@ -47,26 +48,67 @@ const social_media_links = computed(() => [
     },
 ]);
 
-const submitContactForm = () => {
-    // Here you would typically submit the form data to your backend
-    console.log({ name: name.value, email: email.value, message: message.value });
-    formSubmitted.value = true;
-
+const submitContactForm = async () => {
+  if (!name.value || !email.value || !message.value) {
     toast.add({
+      id: 'contact_error',
+      title: t('Missing information'),
+      description: t('Please fill out all fields before submitting.'),
+      icon: 'i-heroicons-exclamation-triangle',
+      color: 'error',
+    })
+    return
+  }
+
+  loading.value = true
+
+  try {
+    // Send form data to your Nuxt API route
+    const res = await $fetch('/api/contact', {
+      method: 'POST',
+      body: {
+        name: name.value,
+        email: email.value,
+        topic: topic.value,
+        message: message.value,
+      },
+    })
+
+    if ('success' in res && res.success) {
+      toast.add({
         id: 'contact_success',
         title: t('Message Sent!'),
         description: t('Your message has been successfully sent. We will get back to you shortly.'),
         icon: 'i-heroicons-check-circle',
-    });
+        color: 'success',
+      })
 
-    // Reset form after submission
-    setTimeout(() => {
-        name.value = '';
-        email.value = '';
-        message.value = '';
-        formSubmitted.value = false;
-    }, 3000);
-};
+      formSubmitted.value = true
+
+      // Reset form
+      setTimeout(() => {
+        name.value = ''
+        email.value = ''
+        topic.value = ''
+        message.value = ''
+        formSubmitted.value = false
+      }, 3000)
+    } else {
+      throw new Error(('error' in res && res.error) || 'Unknown error')
+    }
+  } catch (err) {
+    console.error('Contact form submission failed:', err)
+    toast.add({
+      id: 'contact_failed',
+      title: t('Failed to Send'),
+      description: t('There was a problem sending your message. Please try again later.'),
+      icon: 'i-heroicons-x-circle',
+      color: 'error',
+    })
+  } finally {
+    loading.value = false
+  }
+}
 </script>
 
 <template>

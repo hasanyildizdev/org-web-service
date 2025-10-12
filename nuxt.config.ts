@@ -29,8 +29,20 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/test-utils',
     '@nuxt/ui',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    'nuxt-nodemailer',
   ],
+
+  nodemailer: {
+    from: process.env.SMTP_USER,
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    secure: true,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASSWORD,
+    },
+  },
 
   components: [
     {
@@ -65,7 +77,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-
+      contactEmail: process.env.SMTP_USER,
     }
   }
 })
