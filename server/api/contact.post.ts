@@ -14,12 +14,13 @@ export default defineEventHandler(async (event) => {
   try {
     const transporter = nodemailer.createTransport({
       host: config.smtpHost,
-      port: config.smtpPort,
+      port: Number(config.smtpPort),
       secure: true,
       auth: {
         user: config.smtpUser,
         pass: config.smtpPass
-      }
+      },
+      tls: { rejectUnauthorized: false },
     })
 
     // Build the email content
