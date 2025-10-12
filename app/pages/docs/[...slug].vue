@@ -35,7 +35,7 @@ useHead({
 
 <template>
   <UPageHero title="Docs" :ui="{ container: 'pb-0 sm:pb-0 lg:pb-4 pt-24 sm:pt-24 lg:pt-28' }" />
-  <UContainer class="max-w-7xl mx-auto">
+  <UContainer class="max-w-6xl mx-auto">
     <UPage>
         <UPageHeader :title="page?.title" :description="page?.description"/>
         <template #left>
