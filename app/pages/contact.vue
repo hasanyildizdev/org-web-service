@@ -98,7 +98,7 @@ const submitContactForm = () => {
 
                             <div class="group">
                                 <div class="flex items-start p-4 rounded-xl bg-gray-50/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-primary/30 transition-colors duration-200">
-                                    <div class="w-12 h-12 rounded-xl bg-primary/10 dark:bg-green-900/20 flex items-center justify-center mr-4">
+                                    <div class="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mr-4">
                                         <UIcon name="i-heroicons-phone" class="w-6 h-6 text-primary"></UIcon>
                                     </div>
                                     <div class="flex-1">
