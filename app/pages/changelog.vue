@@ -13,7 +13,7 @@ const versions = ref([
     image: '/assets/images/changelog/v1.2.png',
     badge: 'v1.2',
     date: '2025-09-12',
-    to: 'https://ourorganize.com/blog/v1-2',
+    to: 'https://ourganize.com/blog/v1-2',
     target: '_blank',
     ui: {
       container: 'max-w-lg'
@@ -25,7 +25,7 @@ const versions = ref([
     image: '/assets/images/changelog/v1.1.png',
     badge: 'v1.1',
     date: '2025-09-07',
-    to: 'https://ourorganize.com/blog/v1-1',
+    to: 'https://ourganize.com/blog/v1-1',
     target: '_blank',
     ui: {
       container: 'max-w-lg'
@@ -33,11 +33,11 @@ const versions = ref([
   },
   {
     title: 'Ourganize 1.0',
-    description: 'Ourganize 1.0.0 is out - we deployed our first version!',
+    description: 'Ourganize 1.0 is out - we deployed our first version!',
     image: '/assets/images/changelog/v1.0.png',
     badge: 'v1.0',
     date: '2025-09-01',
-    to: 'https://ourorganize.com/blog/v1-0',
+    to: 'https://ourganize.com/blog/v1-0',
     target: '_blank',
     ui: {
       container: 'max-w-lg'
