@@ -1,14 +1,14 @@
 ---
 title: 'API Overview'
-description: 'Complete API reference for Ourganize'
+description: 'Comprehensive API reference for the Ourganize digital transformation platform'
 navigation:
   title: 'API Overview'
   icon: 'i-heroicons-code-bracket'
 ---
 
-# API Overview
+# Ourganize API Overview
 
-The Ourganize API provides programmatic access to all platform features. It's built with modern REST principles and returns JSON responses.
+The Ourganize API provides comprehensive programmatic access to all platform modules including PMS, CRM, ERP, HR, IMS, and Social Collaboration features. Built with modern REST principles and enhanced with AI-powered capabilities.
 
 ## Base URL
 
@@ -21,9 +21,47 @@ For local development:
 http://localhost:3000/api
 ```
 
-## Authentication
+## Platform Architecture
 
-All API requests require authentication using an API key or JWT token.
+The API is organized around the core business modules:
+
+::card-group
+  ::card
+  ---
+  title: Project Management API
+  icon: i-heroicons-clipboard-document-list
+  ---
+  `/api/v1/pms/` - Projects, tasks, workflows, time tracking, and team management
+  ::
+
+  ::card
+  ---
+  title: CRM API
+  icon: i-heroicons-user-group
+  ---
+  `/api/v1/crm/` - Contacts, deals, pipelines, customer journeys, and sales automation
+  ::
+
+  ::card
+  ---
+  title: ERP API
+  icon: i-heroicons-building-office
+  ---
+  `/api/v1/erp/` - Finance, inventory, procurement, and business operations
+  ::
+
+  ::card
+  ---
+  title: HR API
+  icon: i-heroicons-identification
+  ---
+  `/api/v1/hr/` - Employee management, performance tracking, and auto-CV generation
+  ::
+::
+
+## Authentication & Security
+
+All API requests require authentication using JWT tokens or API keys with role-based access control.
 
 ### API Key Authentication
 

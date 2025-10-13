@@ -1,2 +1,59 @@
-title: Getting Started
-icon: i-lucide-square-play
+title: Documentation
+icon: i-heroicons-book-open
+description: Complete documentation for the Ourganize platform
+
+navigation:
+  - title: Getting Started
+    icon: i-heroicons-rocket-launch
+    to: /guide/getting-started
+    
+  - title: Core Modules
+    icon: i-heroicons-squares-2x2
+    children:
+      - title: Project Management (PMS)
+        to: /modules/pms
+        icon: i-heroicons-clipboard-document-list
+      - title: Customer Relations (CRM)
+        to: /modules/crm
+        icon: i-heroicons-user-group
+      - title: Enterprise Resource Planning (ERP)
+        to: /modules/erp
+        icon: i-heroicons-building-office
+      - title: Human Resources (HR)
+        to: /modules/hr
+        icon: i-heroicons-identification
+      - title: Information Management (IMS)
+        to: /modules/ims
+        icon: i-heroicons-document-duplicate
+      - title: Social Collaboration
+        to: /modules/social
+        icon: i-heroicons-chat-bubble-left-right
+        
+  - title: User Guides
+    icon: i-heroicons-user-circle
+    children:
+      - title: User Profiles & Types
+        to: /guide/user-profiles
+        icon: i-heroicons-users
+      - title: AI Features
+        to: /guide/ai-features
+        icon: i-heroicons-sparkles
+      - title: Platform Administration
+        to: /guide/admin-setup
+        icon: i-heroicons-cog-6-tooth
+      - title: Analytics & Reporting
+        to: /guide/analytics
+        icon: i-heroicons-chart-bar
+        
+  - title: API Reference
+    icon: i-heroicons-code-bracket
+    children:
+      - title: API Overview
+        to: /api/overview
+        icon: i-heroicons-globe-alt
+      - title: Authentication
+        to: /api/auth
+        icon: i-heroicons-key
+      - title: Integrations
+        to: /api/integrations
+        icon: i-heroicons-puzzle-piece
