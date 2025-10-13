@@ -44,21 +44,17 @@ const versions = ref([
 </script>
 
 <template>
-    <UContainer class="max-w-5xl mx-auto">
-      <UPage>
-        <UPageHero title="Changelog" :ui="{ container: 'pb-0 sm:pb-0 lg:pb-4 pt-24 sm:pt-24 lg:pt-28' }" />
-        <UPageBody>
-          <UContainer>
-            <UChangelogVersions>
-                <UChangelogVersion
-                    v-for="(version, index) in versions"
-                    :key="index"
-                    v-bind="version"
-                    :to="version.to"
-                    />
-            </UChangelogVersions>
-          </UContainer>
-        </UPageBody>
-      </UPage>
-    </UContainer>
+    <UPage class="max-w-4xl mx-auto">
+      <UPageHero title="Changelog" :ui="{ container: 'pb-0 sm:pb-0 lg:pb-0 pt-24 sm:pt-24 lg:pt-24' }" />
+      <UPageBody>
+          <UChangelogVersions>
+              <UChangelogVersion
+                  v-for="(version, index) in versions"
+                  :key="index"
+                  v-bind="version"
+                  :to="version.to"
+                  />
+          </UChangelogVersions>
+      </UPageBody>
+    </UPage>
 </template>

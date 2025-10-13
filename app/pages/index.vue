@@ -78,8 +78,8 @@ const what_is_ourganize = computed(() => [
 ])
 </script>
 <template>
-    <UPage>
-      <UPageBody class="max-w-6xl mx-auto">  
+    <UPage class="max-w-6xl mx-auto">
+      <UPageBody>  
           <!-- Section 1: Hero / Intro -->
           <UPageHero
             :headline="$t('In Sync')"

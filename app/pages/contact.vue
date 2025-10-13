@@ -112,8 +112,8 @@ const submitContactForm = async () => {
 </script>
 
 <template>
-    <UPage>
-        <UPageHero title="Contact" :ui="{ container: 'pb-0 sm:pb-0 lg:pb-4 pt-24 sm:pt-24 lg:pt-28' }" />
+    <UPage class="max-w-4xl mx-auto">
+        <UPageHero title="Contact" :ui="{ container: 'pb-0 sm:pb-0 lg:pb-0 pt-24 sm:pt-24 lg:pt-24' }" />
         <UPageBody>
             <div class="w-full flex flex-col lg:flex-row gap-6 justify-center">
              <UCard class="rounded-2xl dark:bg-gray-800 min-w-md">

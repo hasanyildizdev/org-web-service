@@ -34,33 +34,31 @@ useHead({
 </script>
 
 <template>
-  <UPageHero title="Docs" :ui="{ container: 'pb-0 sm:pb-0 lg:pb-4 pt-24 sm:pt-24 lg:pt-28' }" />
-  <UContainer class="max-w-6xl mx-auto">
-    <UPage>
-        <UPageHeader :title="page?.title" :description="page?.description"/>
-        <template #left>
-            <UPageAside>
-                <UContentNavigation 
-                :navigation="navigation" 
-                highlight/>
-            </UPageAside>
-        </template>
-        <UPageBody>
-            <ContentRenderer v-if="page" :value="page" prose class="prose"/>
-            <div v-else class="text-center py-8">
-              <p class="text-gray-500">Content not found</p>
-            </div>
-            <USeparator />
-            <UContentSurround
-              v-if="surround && (surround[0] || surround[1])" 
-              :surround="(surround as any)"/>
-        </UPageBody>
-        <template #right>
-          <UContentToc 
-            v-if="page?.body?.toc?.links"
-            :links="page.body.toc.links" 
-            highlight/>
-        </template>
-    </UPage>
-  </UContainer>
+  <UPageHero title="Docs" :ui="{ container: 'pb-0 sm:pb-0 lg:pb-0 pt-24 sm:pt-24 lg:pt-24' }" />
+  <UPage class="max-w-6xl mx-auto">
+      <UPageHeader :title="page?.title" :description="page?.description"/>
+      <template #left>
+          <UPageAside>
+              <UContentNavigation 
+              :navigation="navigation" 
+              highlight/>
+          </UPageAside>
+      </template>
+      <UPageBody>
+          <ContentRenderer v-if="page" :value="page" prose class="prose"/>
+          <div v-else class="text-center py-8">
+            <p class="text-gray-500">Content not found</p>
+          </div>
+          <USeparator />
+          <UContentSurround
+            v-if="surround && (surround[0] || surround[1])" 
+            :surround="(surround as any)"/>
+      </UPageBody>
+      <template #right>
+        <UContentToc 
+          v-if="page?.body?.toc?.links"
+          :links="page.body.toc.links" 
+          highlight/>
+      </template>
+  </UPage>
 </template>

@@ -31,7 +31,7 @@ const allPosts = ref([
 ])
 
 const page = ref(1)
-const pageSize = 8 // Posts per page
+const pageSize = 6 // Posts per page
 
 // Computed property to get paginated posts
 const paginatedPosts = computed(() => {
@@ -42,22 +42,20 @@ const paginatedPosts = computed(() => {
 </script>
 
 <template>
-    <UPage>
-        <UPageHero title="Blog" :ui="{ container: 'pb-0 sm:pb-0 lg:pb-4 pt-24 sm:pt-24 lg:pt-28' }" />
+    <UPage class="max-w-4xl mx-auto">
+        <UPageHero title="Blog" :ui="{ container: 'pb-0 sm:pb-0 lg:pb-0 pt-24 sm:pt-24 lg:pt-24' }" />
         <UPageBody>
-            <UContainer>
-                <UBlogPosts>
-                    <UBlogPost
-                        v-for="(post, index) in paginatedPosts"
-                        :key="index"
-                        v-bind="post"
-                        :to="post.to"
-                        variant="ghost"/>
-               </UBlogPosts>
-               <div class="mt-8 flex justify-center">
-                 <UPagination v-if="allPosts.length > pageSize" v-model:page="page" :total="allPosts.length" :sibling-count="1" show-edges />
-               </div>
-              </UContainer>
+            <UBlogPosts>
+              <UBlogPost
+                  v-for="(post, index) in paginatedPosts"
+                  :key="index"
+                  v-bind="post"
+                  :to="post.to"
+                  variant="ghost"/>
+           </UBlogPosts>
+           <div class="mt-8 flex justify-center">
+             <UPagination v-if="allPosts.length > pageSize" v-model:page="page" :total="allPosts.length" :sibling-count="1" show-edges />
+           </div>
         </UPageBody>
     </UPage>
 </template>

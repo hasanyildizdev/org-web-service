@@ -10,7 +10,6 @@ export default defineEventHandler(async (event) => {
     smtpPass: process.env.SMTP_PASS,
   }
 
-
   // Basic validation
   if (!name || !email || !message) {
     event.res.statusCode = 400
@@ -64,12 +63,6 @@ ${message}
 
     return { success: true, message: 'Email sent successfully' }
   } catch (err) {
-    console.log('🟢 SMTP config:', {
-      host: config.smtpHost,
-      port: config.smtpPort,
-      user: config.smtpUser,
-      pass: config.smtpPass
-    })
     console.error('❌ Error sending email:', err)
     event.res.statusCode = 500
     return { error: 'Failed to send email. Please try again later.' }
