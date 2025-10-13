@@ -53,7 +53,8 @@ const navigationUi = {
 
         <UNavigationMenu :items="items" :ui="navigationUi" />
         <template #right>
-            <div class="flex items-center space-x-2">
+            <!-- Desktop: Show all controls -->
+            <div class="hidden lg:flex items-center space-x-2">
                 <UColorModeSwitch color="neutral"/>
                 <ULocaleSelect 
                     v-model="locale" 
@@ -63,10 +64,29 @@ const navigationUi = {
                     {{ $t('Login') }}
                 </NuxtLink>
             </div>
+            
+            <!-- Mobile: Only show login -->
+            <div class="lg:hidden">
+                <NuxtLink to="/auth/login" class="px-3 py-1.5 text-sm font-medium bg-primary hover:bg-primary/80 text-white rounded-full transition-colors duration-300">
+                    {{ $t('Login') }}
+                </NuxtLink>
+            </div>
         </template>
 
         <template #body>
-            <UNavigationMenu :items="items" orientation="vertical" :ui="navigationUi" class="-mx-2.5" />
+            <!-- Mobile Navigation Menu -->
+            <div class="lg:hidden">
+                <UNavigationMenu :items="items" orientation="vertical" :ui="navigationUi" class="-mx-2.5" />
+                
+                <!-- Mobile Controls at Bottom -->
+                <div class="flex items-center justify-between px-2.5 pt-4 mt-4 border-t border-gray-200 dark:border-gray-700">
+                    <UColorModeSwitch color="neutral"/>
+                    <ULocaleSelect 
+                        v-model="locale" 
+                        :locales="locales as any" 
+                        class="w-28"/>
+                </div>
+            </div>
         </template>
     </UHeader>
 </template>
