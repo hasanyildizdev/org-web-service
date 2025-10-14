@@ -17,14 +17,12 @@
 
 ## Pages
 - Home
-    - Header
     - Hero
     - What is ourganize
     - How it works
     - Modules (Free, Pro, Enterprise)
     - Testimonials
     - CTA
-    - Footer
 - Blog
 - Auth
     - Login (Google, Github)
@@ -65,9 +63,3 @@ npm run dev
 
 ## API
 https://nuxt.com/docs/4.x/getting-started/data-fetching
-
-## Auth
-https://ui.nuxt.com/docs/components/auth-form
-
-## Docs
-https://ui.nuxt.com/docs/components/page

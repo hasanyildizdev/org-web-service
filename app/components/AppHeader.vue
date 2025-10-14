@@ -22,27 +22,64 @@ const items = computed<NavigationMenuItem[]>(() => [
     to: '/',
 }, 
 {
-    label: $t('Docs'),
-    to: '/docs',
-}, 
-{
-    label: $t('Changelog'),
-    to: '/changelog',
-}, 
-{
     label: $t('Blog'),
     to: '/blog',
 }, 
 {
-    label: $t('Contact'),
-    to: '/contact',
+    label: $t('Resources'),
+    children: [
+        {
+            label: $t('Changelog'),
+            to: '/changelog',
+        },
+        {
+            label: $t('Docs'),
+            to: '/docs',
+        },
+        {
+            label: $t('FAQ'),
+            to: '/',
+        },
+        {
+            label: $t('Feedback & Feature Request'),
+            to: '/',
+        }
+    ]
+},
+{
+    label: $t('Company'),
+    children: [
+        {
+            label: $t('Contact'),
+            to: '/contact',
+        },
+        {
+            label: $t('About'),
+            to: '/about',
+        },
+        {
+            label: $t('Careers'),
+            to: '/',
+        },
+        {
+            label: $t('Security'),
+            to: '/',
+        },
+        {
+            label: $t('Privacy Policy'),
+            to: '/privacy-policy',
+        },
+        {
+            label: $t('Terms of Service'),
+            to: '/terms-of-service',
+        },
+        {
+            label: $t('Cookies'),
+            to: '/cookies',
+        }
+    ]
 }
 ])
-const navigationUi = {
-  link: 'text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-accent font-medium',
-  active: 'text-primary dark:text-accent font-semibold',
-  inactive: 'text-gray-700 dark:text-gray-200'
-}
 </script>
 
 <template>
@@ -51,7 +88,7 @@ const navigationUi = {
             <AppLogo size="md" />
         </template>
 
-        <UNavigationMenu :items="items" :ui="navigationUi" />
+        <UNavigationMenu :items="items" highlight content-orientation="vertical"/>
         <template #right>
             <!-- Desktop: Show all controls -->
             <div class="hidden lg:flex items-center space-x-2">
@@ -76,7 +113,7 @@ const navigationUi = {
         <template #body>
             <!-- Mobile Navigation Menu -->
             <div class="lg:hidden">
-                <UNavigationMenu :items="items" orientation="vertical" :ui="navigationUi" class="-mx-2.5" />
+                <UNavigationMenu :items="items" orientation="vertical" class="-mx-2.5" />
                 
                 <!-- Mobile Controls at Bottom -->
                 <div class="flex items-center justify-between px-2.5 pt-4 mt-4 border-t border-gray-200 dark:border-gray-700">
