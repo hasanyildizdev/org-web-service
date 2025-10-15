@@ -64,3 +64,5 @@ npm run dev
 
 ## API
 https://nuxt.com/docs/4.x/getting-started/data-fetching
+
+1
