@@ -8,6 +8,7 @@
 - Pinia
 
 ## Design 
+- Gestalt Psychology
 - Modern UI
 - Minimalistic design
 - Smooth animations(Three.js)
@@ -63,3 +64,5 @@ npm run dev
 
 ## API
 https://nuxt.com/docs/4.x/getting-started/data-fetching
+
+github-pat updated
