@@ -71,6 +71,7 @@ export default defineNuxtConfig({
     smtpPass: process.env.SMTP_PASS,
     public: {
       contactEmail: process.env.SMTP_USER,
-    }
+      dashboardUrl: process.env.DASHBOARD_URL || 'http://localhost:3001',
+    },
   }
 })

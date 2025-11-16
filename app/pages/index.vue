@@ -5,6 +5,7 @@ useHead({
     { name: 'description', content: 'Welcome to our amazing project!' }
   ]
 })
+const config = useRuntimeConfig()
 
 const { t } = useI18n()
 
@@ -12,7 +13,7 @@ const cta_links = computed(() => [
   {
     label: t('Start Free Trial'),
     color: 'neutral' as const,
-    to: '/auth/login'
+    to: config.public.dashboardUrl + '/auth/login'
   },
   {
     label: t('Schedule Demo'),
@@ -27,14 +28,14 @@ const hero_links = computed(() => [
     {
         label: t('Start Organizing'),
         color: 'neutral' as const,
-        to: '/auth/login'
+        to: config.public.dashboardUrl + '/auth/login'
     },
     {
         label: t('Get Started'),
         color: 'neutral' as const,
         variant: 'subtle' as const,
         trailingIcon: 'i-lucide-arrow-right',
-        to: '/auth/login'
+        to: config.public.dashboardUrl + '/auth/login'
     }
 ])
 

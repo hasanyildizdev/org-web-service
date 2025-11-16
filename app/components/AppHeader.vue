@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 const { locale, locales, setLocale } = useI18n()
+const config = useRuntimeConfig()
 
 // Restore saved locale on mount
 onMounted(() => {
@@ -97,14 +98,14 @@ const items = computed<NavigationMenuItem[]>(() => [
                     v-model="locale" 
                     :locales="locales as any" 
                     class="w-32"/>
-                <NuxtLink to="/auth/login" class="px-4 py-2 text-sm font-medium bg-primary hover:bg-primary/80 text-white rounded-full transition-colors duration-300">
+                <NuxtLink :to="config.public.dashboardUrl + '/auth/login'" class="px-4 py-2 text-sm font-medium bg-primary hover:bg-primary/80 text-white rounded-full transition-colors duration-300">
                     {{ $t('Login') }}
                 </NuxtLink>
             </div>
             
             <!-- Mobile: Only show login -->
             <div class="lg:hidden">
-                <NuxtLink to="/auth/login" class="px-3 py-1.5 text-sm font-medium bg-primary hover:bg-primary/80 text-white rounded-full transition-colors duration-300">
+                <NuxtLink :to="config.public.dashboardUrl + '/auth/login'" class="px-3 py-1.5 text-sm font-medium bg-primary hover:bg-primary/80 text-white rounded-full transition-colors duration-300">
                     {{ $t('Login') }}
                 </NuxtLink>
             </div>
