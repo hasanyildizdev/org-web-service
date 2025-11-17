@@ -5,6 +5,7 @@ useHead({
     { name: 'description', content: 'Privacy Policy for our CRM & PMS software' }
   ]
 })
+const { contactContent } = useOurganize();
 </script>
 
 <template>
@@ -42,7 +43,7 @@ useHead({
   
           <h2 class="text-xl font-semibold">5. Your Rights</h2>
           <p>
-            You have the right to access, correct, or delete your personal data. Contact us at <a href="mailto:info@ourganize.com" class="text-primary hover:underline">info@ourganize.com</a> to make a request.
+            You have the right to access, correct, or delete your personal data. Contact us at <a :href="'mailto:' + contactContent.email" class="text-primary hover:underline">{{ contactContent.email }}</a> to make a request.
           </p>
   
           <h2 class="text-xl font-semibold">6. Changes to This Policy</h2>

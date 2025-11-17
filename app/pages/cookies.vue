@@ -5,6 +5,7 @@ useHead({
         { name: 'description', content: 'Cookies' }
     ]
 })
+const { contactContent } = useOurganize();
 </script>
 
 <template>
@@ -14,7 +15,7 @@ useHead({
             <div class="space-y-6 text-gray-700 dark:text-gray-200">
                 <h1 class="text-4xl font-bold">Cookies Policy</h1>
                 <p>
-                    This Cookies Policy explains how <strong>Ourganize</strong> ("we", "us", or "our") uses cookies and similar technologies on our website <a href="https://ourganize.com" class="text-blue-600 underline">ourganize.com</a>.
+                    This Cookies Policy explains how <strong>{{ contactContent.name }}</strong> ("we", "us", or "our") uses cookies and similar technologies on our website <a :href="contactContent.url" class="text-blue-600 underline">{{ contactContent.domain }}</a>.
                 </p>
 
                 <h2 class="text-2xl font-semibold">1. What Are Cookies?</h2>
@@ -51,7 +52,7 @@ useHead({
 
                 <h2 class="text-2xl font-semibold">6. Contact Us</h2>
                 <p>
-                    If you have any questions about this Cookies Policy, you can contact us at <a href="mailto:info@ourganize.com" class="text-blue-600 underline">info@ourganize.com</a>.
+                    If you have any questions about this Cookies Policy, you can contact us at <a :href="'mailto:' + contactContent.email" class="text-blue-600 underline">{{ contactContent.email }}</a>.
                 </p>
             </div>
         </UCard>

@@ -1,3 +1,6 @@
+<script setup>
+const { contactContent } = useOurganize();
+</script>
 <template>
     <UFooter class="mt-4 border-t border-gray-200 dark:border-gray-800">
         <template #left>
@@ -14,8 +17,8 @@
         </template>
         <template #right>
             <div class="w-full sm:w-auto flex flex-col items-start mb-4 md:mb-0">
-                <span class="text-lg font-semibold text-secondary dark:text-white">Ourganize</span>
-                <span class="text-sm text-gray-500 dark:text-gray-400">{{ $t('Where time works for you.') }}</span>
+                <span class="text-lg font-semibold text-secondary dark:text-white">{{ contactContent.name }}</span>
+                <span class="text-sm text-gray-500 dark:text-gray-400">{{ $t(contactContent.slogan) }}</span>
             </div>
         </template>
     </UFooter>

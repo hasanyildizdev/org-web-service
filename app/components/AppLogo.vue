@@ -38,12 +38,12 @@ const sizeClasses = {
     spacing: 'ml-3'
   }
 }
-
+const { contactContent } = useOurganize();
 const currentSize = computed(() => sizeClasses[props.size])
 </script>
 <template>
     <NuxtLink to="/" class="flex items-center justify-center">
         <Logo :class="`${currentSize.logo} fill-primary dark:fill-white`"/>
-        <span :class="`${currentSize.spacing} ${currentSize.text} font-semibold text-primary dark:text-white`">Ourganize</span>
+        <span :class="`${currentSize.spacing} ${currentSize.text} font-semibold text-primary dark:text-white`">{{ contactContent.name }}</span>
     </NuxtLink>
 </template>

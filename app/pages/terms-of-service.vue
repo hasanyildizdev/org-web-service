@@ -5,6 +5,7 @@ useHead({
         { name: 'description', content: 'Terms of Service' }
     ]
 })
+const { contactContent } = useOurganize();
 </script>
 
 <template>
@@ -14,7 +15,7 @@ useHead({
                 <div class="space-y-6 text-gray-700 dark:text-gray-200">
                     <h1 class="text-4xl font-bold">Terms of Service</h1>
                     <p>
-                        These Terms of Service ("Terms") govern your access to and use of Ourganize.com ("we", "us", or "our"), a CRM and PMS software platform. By using our services, you agree to be bound by these Terms.
+                        These Terms of Service ("Terms") govern your access to and use of {{ contactContent.name }} ("we", "us", or "our"), a CRM and PMS software platform. By using our services, you agree to be bound by these Terms.
                     </p>
 
                     <h2 class="text-2xl font-semibold">1. Use of Service</h2>
@@ -29,7 +30,7 @@ useHead({
 
                     <h2 class="text-2xl font-semibold">3. Data & Privacy</h2>
                     <p>
-                        Our use of your data is governed by our <NuxtLink to="/privacy-policy" target="_blank" class="text-blue-600 underline">Privacy Policy</NuxtLink>. By using Ourganize, you consent to the collection and use of information as described there.
+                        Our use of your data is governed by our <NuxtLink to="/privacy-policy" target="_blank" class="text-blue-600 underline">Privacy Policy</NuxtLink>. By using {{ contactContent.name }}, you consent to the collection and use of information as described there.
                     </p>
 
                     <h2 class="text-2xl font-semibold">4. Availability & Changes</h2>
@@ -44,12 +45,12 @@ useHead({
 
                     <h2 class="text-2xl font-semibold">6. Limitation of Liability</h2>
                     <p>
-                        Ourganize shall not be liable for any indirect, incidental, or consequential damages arising out of your use of the platform.
+                        {{ contactContent.name }} shall not be liable for any indirect, incidental, or consequential damages arising out of your use of the platform.
                     </p>
 
                     <h2 class="text-2xl font-semibold">7. Contact Us</h2>
                     <p>
-                        If you have any questions about these Terms, please contact us at <a href="mailto:info@ourganize.com" class="text-blue-600 underline">info@ourganize.com</a>.
+                        If you have any questions about these Terms, please contact us at <a :href="'mailto:' + contactContent.email" class="text-blue-600 underline">{{ contactContent.email }}</a>.
                     </p>
 
                     <p class="text-sm text-gray-500 dark:text-gray-400">
