@@ -84,7 +84,7 @@ const items = computed<NavigationMenuItem[]>(() => [
 </script>
 
 <template>
-    <UHeader class="fixed top-2 left-0 right-0 z-50 max-w-screen-xl rounded-lg mx-auto backdrop-blur-xs bg-white/50 dark:bg-slate-900/70 border-b border-gray-200 dark:border-gray-800 shadow-sm shadow-xl py-3">
+    <UHeader class="fixed top-2 left-0 right-0 z-50 max-w-screen-xl rounded-lg mx-2 lg:mx-auto backdrop-blur-xs bg-white/50 dark:bg-slate-900/70 border-b border-gray-200 dark:border-gray-800 shadow-sm shadow-xl py-3">
         <template #title>
             <AppLogo size="md" />
         </template>
@@ -114,7 +114,15 @@ const items = computed<NavigationMenuItem[]>(() => [
         <template #body>
             <!-- Mobile Navigation Menu -->
             <div class="lg:hidden">
-                <UNavigationMenu :items="items" orientation="vertical" class="-mx-2.5" />
+                <UNavigationMenu 
+                    :items="items" 
+                    orientation="vertical" 
+                    class="-mx-2.5"
+                    :ui="{
+                        item: 'px-4 py-3 text-base',
+                        content: 'py-2',
+                        link: 'px-4 py-3 text-base',
+                    }" />
                 
                 <!-- Mobile Controls at Bottom -->
                 <div class="flex items-center justify-between px-2.5 pt-4 mt-4 border-t border-gray-200 dark:border-gray-700">
