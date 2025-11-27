@@ -1,5 +1,5 @@
 
-import type { OurganizeContactInterface } from '~/types/ourganize_types';
+import type { OurganizeContactInterface } from '~/types/core_types';
 export function useOurganize(){
     const contactContent = ref<OurganizeContactInterface>({
         name: 'Ourganize',

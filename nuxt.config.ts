@@ -1,10 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import meta from './app/config/meta'
-
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-
   css: ['~/assets/css/main.css'],
 
   app: {
@@ -23,21 +21,22 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxt/content',
+    '@nuxt/ui',
     '@nuxt/eslint',
     '@nuxt/image',
+    '@nuxt/content',
     '@nuxt/scripts',
     '@nuxt/test-utils',
-    '@nuxt/ui',
     '@nuxtjs/i18n',
+    '@pinia/nuxt',
     'nuxt-nodemailer',
-    '@nuxtjs/apollo',
   ],
 
   components: [
     {
       path: '~/components',
       pathPrefix: false,   
+      extensions: ['.vue']
     },
   ],
 
