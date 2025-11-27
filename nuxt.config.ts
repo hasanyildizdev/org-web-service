@@ -31,6 +31,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxtjs/i18n',
     'nuxt-nodemailer',
+    '@nuxtjs/apollo',
   ],
 
   components: [
@@ -72,6 +73,7 @@ export default defineNuxtConfig({
     public: {
       contactEmail: process.env.SMTP_USER,
       dashboardUrl: process.env.DASHBOARD_URL || 'http://localhost:3001',
+      apiUrl: process.env.BACKEND_API_URL || 'http://localhost:8000',
     },
   }
 })
