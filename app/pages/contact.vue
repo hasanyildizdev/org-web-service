@@ -114,9 +114,9 @@ const submitContactForm = async () => {
 <template>
     <UPage class="max-w-4xl mx-auto">
         <UPageHero title="Contact" :ui="{ container: 'pb-0 sm:pb-0 lg:pb-0 pt-24 sm:pt-24 lg:pt-24' }" />
-        <UPageBody>
-            <div class="w-full flex flex-col lg:flex-row gap-6 justify-center">
-             <UCard class="rounded-2xl dark:bg-gray-800">
+        <UPageBody class="px-2">
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+                <UCard class="rounded-2xl dark:bg-gray-800 col">
                     <!-- Header with gradient background -->
                     <template #header>
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{{ $t('Get in Touch') }}</h3>
@@ -178,7 +178,7 @@ const submitContactForm = async () => {
                     </div>
                 </UCard>
 
-                <UCard class="rounded-2xl dark:bg-gray-800">
+                <UCard class="rounded-2xl dark:bg-gray-800 col">
                     <template #header>
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{{ $t('Send Us a Message') }}</h3>
                     </template>

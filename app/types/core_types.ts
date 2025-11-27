@@ -22,3 +22,25 @@ export interface Changelog {
     date: string;
     to: string;
 }
+
+export interface User {
+    id: string;
+    name: string;
+    email: string;
+    avatar?: string;
+}
+
+export interface BlogPost {
+    id: string;
+    author?: User;
+    status: string;
+    is_featured: boolean;
+    category: string;
+    title: string;
+    slug: string;
+    summary: string;
+    content: string;
+    image: string;
+    image_alt: string;
+    published_at: string;
+}
