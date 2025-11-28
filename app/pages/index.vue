@@ -77,6 +77,19 @@ const what_is_ourganize = computed(() => [
     to: '/docs/getting-started/integrations/color-mode'
   }
 ])
+
+const user = {
+  id: 1,
+  name: "Jane Doe",
+  photo: "https://randomuser.me/api/portraits/men/3.jpg",
+  title: "Full Stack Developer",
+  summary:
+    "Passionate developer with 5+ years building scalable web applications.",
+  education: "MSc Computer Science, University X",
+  skills: ["JavaScript", "Vue.js", "Laravel", "GraphQL", "Tailwind CSS"],
+  experience: "5 years at TechCorp as Senior Developer",
+  email: "jane.doe@example.com",
+};
 </script>
 <template>
     <UPage class="max-w-6xl mx-auto">
@@ -119,7 +132,80 @@ const what_is_ourganize = computed(() => [
                       />
               </UPageGrid>
           </UPageSection>
+
+          <UPageSection>
+            <div class="text-start">
+                <h2 class="text-sm font-semibold text-secondary dark:text-accent uppercase tracking-wide mb-3">
+                    {{ $t('Auto CV Generator') }}
+                </h2>
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary dark:text-white mb-6">
+                    {{ $t('Generate your CV in seconds') }}
+                </h3>
+            </div>
+            <div class="py-16 px-6 md:px-12 lg:px-24">
+              <!-- CV Card -->
+              <div class="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+                  <!-- Header: User Image & Name -->
+                  <div class="flex items-center px-6 py-4">
+                      <img
+                          class="h-16 w-16 rounded-full object-cover border-2 border-indigo-500"
+                          :src="user.photo"
+                          :alt="user.name"
+                      />
+                      <div class="ml-4">
+                          <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+                          {{ user.name }}
+                          </h2>
+                          <p class="text-indigo-600 font-medium text-sm">{{ user.title }}</p>
+                      </div>
+                  </div>
   
+                  <!-- Summary -->
+                  <div class="px-6 py-2 text-gray-700 dark:text-gray-300">
+                      <p class="text-sm italic mb-4">
+                          "{{ user.summary }}"
+                      </p>
+                  </div>
+  
+                  <!-- CV Info Grid -->
+                  <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-700 grid grid-cols-2 gap-4 text-gray-800 dark:text-gray-200">
+                      <div>
+                          <h3 class="text-xs font-semibold uppercase text-indigo-600 mb-1">
+                          Education
+                          </h3>
+                          <p class="text-sm">{{ user.education }}</p>
+                      </div>
+                      <div>
+                          <h3 class="text-xs font-semibold uppercase text-indigo-600 mb-1">
+                          Skills
+                          </h3>
+                          <p class="text-sm">{{ user.skills.join(', ') }}</p>
+                      </div>
+                      <div>
+                          <h3 class="text-xs font-semibold uppercase text-indigo-600 mb-1">
+                          Experience
+                          </h3>
+                          <p class="text-sm">{{ user.experience }}</p>
+                      </div>
+                      <div>
+                          <h3 class="text-xs font-semibold uppercase text-indigo-600 mb-1">
+                          Contact
+                          </h3>
+                          <p class="text-sm text-indigo-700 underline cursor-pointer">
+                              {{ user.email }}
+                          </p>
+                      </div>
+                  </div>
+  
+                  <!-- Action Buttons -->
+                  <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-700 flex justify-between gap-3">
+                      <p class="text-indigo-600 font-semibold hover:underline">View Full Profile</p>
+                      <p class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded-md text-sm">Download CV</p>
+                  </div>
+              </div>
+            </div>
+          </UPageSection>
+
           <!-- Section 8: CTA -->
           <UPageCTA
               :title="$t('Transform Your Organization Today')"
